@@ -43,4 +43,14 @@ public class HeroService {
 		heroRepo.deleteById(id);
 		return 0;
 	}
+
+	public void editHero(Hero hero) {
+
+		// Revisar lógica - deleta a entrada antiga do banco e armazena uma nova com o mesmo id
+		long id = hero.getHero_id();
+		heroRepo.deleteById(id);
+		hero.setHero_id(id);
+		heroRepo.save(hero);
+		
+	}
 }

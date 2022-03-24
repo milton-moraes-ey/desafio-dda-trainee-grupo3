@@ -47,6 +47,12 @@ public class HeroController {
 		heroServ.addHero(hero);
 	}
 	
+	// Edita herói no banco
+		@PostMapping(path = "editHero", consumes = {"*/*"})
+		public void editHero(@RequestBody Hero hero) {
+			heroServ.editHero(hero);
+		}
+	
 	// Deleta herói
 		@GetMapping(path = "delete")
 		public int deleteHeroById(Long Id) {
