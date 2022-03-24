@@ -84,7 +84,6 @@ export const BtnHandler = styled.div`
     flex-direction: row;
     justify-content: space-around;
     margin-top: 20px;
-    
 `;
 
 export const Button = styled.button`

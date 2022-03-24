@@ -8,6 +8,12 @@ const GlobalStyle = createGlobalStyle`
     background-image: url(${img});
     font-family: Open-Sans, Helvetica, Sans-Serif;
   }
+
+  .none {
+    text-decoration: none;
+    color: #FFF;
+    font-weight: bold;
+  }
 `;
  
 export default GlobalStyle;

@@ -19,7 +19,7 @@ const Login = () => {
               <ContainerLogin>
             <Hero1 src={Goku}/>
             <Hero2 src={Logo}/>
-            <Hero3 src={SpiderMan}/>]
+            <Hero3 src={SpiderMan}/>
                 <ContainerTitle>
                     <h1>Logo</h1>
                 </ContainerTitle>
