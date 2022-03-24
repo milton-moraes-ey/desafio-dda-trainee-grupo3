@@ -32,14 +32,14 @@ public class HeroController {
 	
 	// Encontra herói pelo nome
 	@GetMapping(path = "byName")
-	public List<Hero> getHeroByName(String heroName) {
-		return heroServ.getHeroByName(heroName);
+	public List<Hero> getHeroByName(String name) {
+		return heroServ.getHeroByName(name);
 	}
 	
 	// Encontra heróis criados pelo usuário
 	@GetMapping(path = "byId")
-	public List<Hero> getHeroesByClientId(Long clientId) {
-		return heroServ.getHeroesByClientId(clientId);
+	public List<Hero> findAllByUserId(Long userId) {
+		return heroServ.findAllByUserId(userId);
 	}
 	
 	// Adiciona herói ao banco
@@ -56,7 +56,7 @@ public class HeroController {
 	
 	// Deleta herói
 		@GetMapping(path = "delete")
-		public void deleteHeroById(@RequestParam Long id) {
-			heroServ.softDeleteHeroById(id);
+		public void deleteHeroByHeroId(@RequestParam Long heroId) {
+			heroServ.softDeleteHeroByHeroId(heroId);
 		}
 }

@@ -12,13 +12,13 @@ public interface HeroRepository extends JpaRepository<Hero, Long>{
 
 
 //	@Query("SELECT h FROM Hero h WHERE h.hero_name = ?1")
-	Hero findByHeroName(String heroName);
+	Hero findByName(String name);
 	
 //	@Query("SELECT h FROM Hero h WHERE h.client_id = ?1")
-	List<Hero> findAllByClientId(Long clientId);
+	List<Hero> findAllByUserId(Long userId);
 	
 //	@Query("SELECT h FROM Hero h WHERE h.soft_delete = ?1")
 	List<Hero> findAllBySoftDelete(int zero);
 	
-	List<Hero> findAllByHeroName(String name);
+	List<Hero> findAllByName(String name);
 }

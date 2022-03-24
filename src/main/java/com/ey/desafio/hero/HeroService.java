@@ -18,8 +18,8 @@ public class HeroService {
 	}
 	
 	// Retorna herói pelo nome
-	public List<Hero> getHeroByName(String heroName){
-		List<Hero> local = heroRepo.findAllByHeroName(heroName);
+	public List<Hero> getHeroByName(String name){
+		List<Hero> local = heroRepo.findAllByName(name);
 		for(Hero h:local) {
 			if(h.getSoftDelete() == 1) {
 				local.remove(h);
@@ -29,8 +29,8 @@ public class HeroService {
 	}
 	
 	//Retorna todos os heróis criados pelo usuário
-	public List<Hero> getHeroesByClientId(Long clientId) {
-		List<Hero> listaLocal = heroRepo.findAllByClientId(clientId);
+	public List<Hero> findAllByUserId(Long userId) {
+		List<Hero> listaLocal = heroRepo.findAllByUserId(userId);
 		for(Hero h: listaLocal) {
 			if(h.getSoftDelete() == 1) {
 				listaLocal.remove(h);
@@ -51,9 +51,9 @@ public class HeroService {
 	}
 
 	// Deleta um herói
-	public void softDeleteHeroById(Long id) {
-		Hero local = heroRepo.findById(id).get();
-		heroRepo.deleteById(id);
+	public void softDeleteHeroByHeroId(Long heroId) {
+		Hero local = heroRepo.findById(heroId).get();
+		heroRepo.deleteById(heroId);
 		local.setSoftDelete(1);
 		heroRepo.save(local);
 	}
@@ -61,9 +61,9 @@ public class HeroService {
 	// Edita dados de um herói
 	public void editHero(Hero hero) {
 
-		long id = hero.getId();
+		long id = hero.getHeroId();
 		heroRepo.deleteById(id);
-		hero.setId(id);
+		hero.setHeroId(id);
 		heroRepo.save(hero);
 		
 	}

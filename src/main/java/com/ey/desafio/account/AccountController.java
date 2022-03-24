@@ -1,4 +1,4 @@
-package com.ey.desafio.user;
+package com.ey.desafio.account;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,28 +7,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/client")
-public class ClientController {
+@RequestMapping(path = "/account")
+public class AccountController {
 
-	private final ClientService clientServ;
+	private final AccountService accServ;
 	
 	// Construtor
 	@Autowired
-	public ClientController (ClientService clientServ) {
-		this.clientServ = clientServ;
+	public AccountController (AccountService accServ) {
+		this.accServ = accServ;
 	}
 	
 	// Valida o login
 	@PostMapping(path = "login", consumes = {"*/*"})
-	public Long validate(@RequestBody Client info) {
+	public Long validate(@RequestBody Account info) {
 		System.out.println(info);
-		return clientServ.validate(info);
+		return accServ.validate(info);
 	}
 	
 	// Adiciona usiário ao banco
 		@PostMapping(path = "register", consumes = {"*/*"})
-		public long addClient(@RequestBody Client client) {
-			return clientServ.addClient(client);
+		public long addAccount(@RequestBody Account acc) {
+			return accServ.addAccount(acc);
 		}
 
 }

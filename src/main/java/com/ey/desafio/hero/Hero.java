@@ -16,19 +16,19 @@ public class Hero {
 	@Id
 	@SequenceGenerator(name = "hero_sequence", sequenceName = "hero_sequence", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hero_sequence")
-	private long id;
+	private long heroId;
 
 	@Column
-	private String heroName;
+	private String name;
 
 	@Column
-	private String powers;
+	private String universe;
 
 	@Column
-	private long universe;
+	private String power;
 
 	@Column
-	private long clientId;
+	private long userId;
 
 	@Column
 	private String recDate;
@@ -36,44 +36,44 @@ public class Hero {
 	@Column
 	private int softDelete;
 
-	public long getId() {
-		return id;
+	public long getHeroId() {
+		return heroId;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setHeroId(long heroId) {
+		this.heroId = heroId;
 	}
 
-	public String getHeroName() {
-		return heroName;
+	public String getName() {
+		return name;
 	}
 
-	public void setHeroName(String heroName) {
-		this.heroName = heroName;
+	public void setName(String heroName) {
+		this.name = heroName;
 	}
 
-	public String getPowers() {
-		return powers;
+	public String getPower() {
+		return power;
 	}
 
-	public void setPowers(String powers) {
-		this.powers = powers;
+	public void setPower(String power) {
+		this.power = power;
 	}
 
-	public long getUniverse() {
+	public String getUniverse() {
 		return universe;
 	}
 
-	public void setUniverse(long universe) {
+	public void setUniverse(String universe) {
 		this.universe = universe;
 	}
 
-	public long getClientId() {
-		return clientId;
+	public long getUserId() {
+		return userId;
 	}
 
-	public void setClientId(long clientId) {
-		this.clientId = clientId;
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
 
 	public String getRecDate() {
@@ -96,13 +96,13 @@ public class Hero {
 	public Hero() {
 	}
 
-	public Hero(long id, String heroName, String powers, long universe, long clientId, String recDate, int softDelete) {
+	public Hero(long heroId, String name, String power, String universe, long userId, String recDate, int softDelete) {
 		super();
-		this.id = id;
-		this.heroName = heroName;
-		this.powers = powers;
+		this.heroId = heroId;
+		this.name = name;
+		this.power = power;
 		this.universe = universe;
-		this.clientId = clientId;
+		this.userId = userId;
 		this.recDate = recDate;
 		this.softDelete = 0;
 	}

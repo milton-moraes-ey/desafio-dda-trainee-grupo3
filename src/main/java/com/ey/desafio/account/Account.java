@@ -1,4 +1,4 @@
-package com.ey.desafio.user;
+package com.ey.desafio.account;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,12 +10,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Client {
+public class Account {
 
 	@Id
 	@SequenceGenerator(name = "hero_sequence", sequenceName = "hero_sequence", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hero_sequence")
-	private Long clientId;
+	private Long userId;
 	
 	@Column
 	private String username;
@@ -28,11 +28,11 @@ public class Client {
 	
 	
 	public Long getClientId() {
-		return clientId;
+		return userId;
 	}
 
-	public void setClientId(Long clientId) {
-		this.clientId = clientId;
+	public void setClientId(Long userId) {
+		this.userId = userId;
 	}
 
 	public String getUsername() {
@@ -59,33 +59,33 @@ public class Client {
 		this.password = password;
 	}
 
-	public Client() {}
+	public Account() {}
 
-	public Client(String username, String email, String password) {
+	public Account(String username, String email, String password) {
 		super();
 		this.username = username;
 		this.email = email;
 		this.password = password;
 	}
 
-	public Client(Long clientId, String username, String email, String password) {
+	public Account(Long userId, String username, String email, String password) {
 		super();
-		this.clientId = clientId;
+		this.userId = userId;
 		this.username = username;
 		this.email = email;
 		this.password = password;
 	}
 
 	// Construtor para verificação de login
-	public Client(String username, String password) {
+	public Account(String email, String password) {
 		super();
-		this.username = username;
+		this.username = email;
 		this.password = password;
 	}
 	
 	@Override
 	public String toString() {
-		return "User [clientId=" + clientId + ", username=" + username + ", email=" + email + ", password=" + password
+		return "User [clientId=" + userId + ", username=" + username + ", email=" + email + ", password=" + password
 				+ "]";
 	}
 
