@@ -17,15 +17,15 @@ public class Hero {
 	@SequenceGenerator(name = "hero_sequence", sequenceName = "hero_sequence", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "hero_sequence")
 	private long id;
-	
-	@Column
-	private String heroName;
-	
-	@Column
-	private long powerId;
 
 	@Column
-	private long universeId;
+	private String heroName;
+
+	@Column
+	private String powers;
+
+	@Column
+	private long universe;
 
 	@Column
 	private long clientId;
@@ -35,45 +35,37 @@ public class Hero {
 
 	@Column
 	private int softDelete;
-	
-	public int getSoft_delete() {
-		return softDelete;
-	}
 
-	public void setSoft_delete(int soft_delete) {
-		this.softDelete = soft_delete;
-	}
-
-	public long getHero_id() {
+	public long getId() {
 		return id;
 	}
 
-	public void setHero_id(long hero_id) {
-		this.id = hero_id;
+	public void setId(long id) {
+		this.id = id;
 	}
 
-	public String getHero_name() {
+	public String getHeroName() {
 		return heroName;
 	}
 
-	public void setHero_name(String hero_name) {
-		this.heroName = hero_name;
+	public void setHeroName(String heroName) {
+		this.heroName = heroName;
 	}
 
-	public long getPower_id() {
-		return powerId;
+	public String getPowers() {
+		return powers;
 	}
 
-	public void setPower_id(long power_id) {
-		this.powerId = power_id;
+	public void setPowers(String powers) {
+		this.powers = powers;
 	}
 
-	public long getUniverse_id() {
-		return universeId;
+	public long getUniverse() {
+		return universe;
 	}
 
-	public void setUniverse_id(long universe_id) {
-		this.universeId = universe_id;
+	public void setUniverse(long universe) {
+		this.universe = universe;
 	}
 
 	public long getClientId() {
@@ -84,48 +76,35 @@ public class Hero {
 		this.clientId = clientId;
 	}
 
-	public String getRec_date() {
+	public String getRecDate() {
 		return recDate;
 	}
 
-	public void setRec_date(String rec_date) {
-		this.recDate = rec_date;
+	public void setRecDate(String recDate) {
+		this.recDate = recDate;
 	}
-	
+
+	public int getSoftDelete() {
+		return softDelete;
+	}
+
+	public void setSoftDelete(int softDelete) {
+		this.softDelete = softDelete;
+	}
+
 	// Construtor vazio
-	public Hero() {}
+	public Hero() {
+	}
 
-	public Hero(String hero_name, long power_id, long universe_id, long clientId, String rec_date) {
+	public Hero(long id, String heroName, String powers, long universe, long clientId, String recDate, int softDelete) {
 		super();
-		this.heroName = hero_name;
-		this.powerId = power_id;
-		this.universeId = universe_id;
+		this.id = id;
+		this.heroName = heroName;
+		this.powers = powers;
+		this.universe = universe;
 		this.clientId = clientId;
-		this.recDate = rec_date;
+		this.recDate = recDate;
 		this.softDelete = 0;
 	}
 
-	// Construtor com todos os parâmetros
-	public Hero(long hero_id, String hero_name, long power_id, long universe_id, long clientId, String rec_date) {
-		super();
-		this.id = hero_id;
-		this.heroName = hero_name;
-		this.powerId = power_id;
-		this.universeId = universe_id;
-		this.clientId = clientId;
-		this.recDate = rec_date;
-		this.softDelete = 0;
-	}
-
-	// Método toString
-	@Override
-	public String toString() {
-		return "Hero [hero_id=" + id + ", hero_name=" + heroName + ", power_id=" + powerId + ", universe_id="
-				+ universeId + ", client_id=" + clientId + ", rec_date=" + recDate + ", soft_delete=" + softDelete
-				+ "]";
-	}
-
-	
-	
-	
 }

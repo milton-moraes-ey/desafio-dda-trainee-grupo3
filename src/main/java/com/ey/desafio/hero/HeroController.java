@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 //API LAYER
@@ -31,7 +32,7 @@ public class HeroController {
 	
 	// Encontra herói pelo nome
 	@GetMapping(path = "byName")
-	public Hero getHeroByName(String heroName) {
+	public List<Hero> getHeroByName(String heroName) {
 		return heroServ.getHeroByName(heroName);
 	}
 	
@@ -43,8 +44,8 @@ public class HeroController {
 	
 	// Adiciona herói ao banco
 	@PostMapping(path = "postHero", consumes = {"*/*"})
-	public void addHero(@RequestBody Hero hero) {
-		heroServ.addHero(hero);
+	public Hero addHero(@RequestBody Hero hero) {
+		return heroServ.addHero(hero);
 	}
 	
 	// Edita herói no banco
@@ -55,7 +56,7 @@ public class HeroController {
 	
 	// Deleta herói
 		@GetMapping(path = "delete")
-		public int deleteHeroById(Long Id) {
-			return heroServ.deleteHeroById(Id);
+		public void deleteHeroById(@RequestParam Long id) {
+			heroServ.softDeleteHeroById(id);
 		}
 }

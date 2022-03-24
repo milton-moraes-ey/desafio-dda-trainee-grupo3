@@ -19,4 +19,6 @@ public interface HeroRepository extends JpaRepository<Hero, Long>{
 	
 //	@Query("SELECT h FROM Hero h WHERE h.soft_delete = ?1")
 	List<Hero> findAllBySoftDelete(int zero);
+	
+	List<Hero> findAllByHeroName(String name);
 }
