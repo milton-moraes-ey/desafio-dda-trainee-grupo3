@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Container,
@@ -21,6 +21,21 @@ import { AiOutlineUserAdd } from "react-icons/ai";
 import { TiSpiral } from "react-icons/ti";
 
 const CadastroHeroi = () => {
+  const [picture, setPicture] = useState(null);
+  const [imgData, setImgData] = useState(null);
+
+  const handleImage = e => {
+    if (e.target.files[0]) {
+      console.log("picture: ", e.target.files);
+      setPicture(e.target.files[0]);
+      const reader = new FileReader();
+      reader.addEventListener("load", () => {
+        setImgData(reader.result);
+      });
+      reader.readAsDataURL(e.target.files[0]);
+    }
+  };
+  
   return (
     <Container>
       <NavBar>
@@ -48,7 +63,7 @@ const CadastroHeroi = () => {
       <ContainerDeCadastro>
         <ContainerImagem>
           <h1>NOVO HERÓI</h1>
-          <ChooseHero src={chooseHero} />
+          <ChooseHero src={imgData} />
         </ContainerImagem>
         <ContainerFormulario>
           <form>
@@ -75,11 +90,14 @@ const CadastroHeroi = () => {
 
             <ButtonsGroup>
               <button type="submit">CADASTRAR</button>
-          
-              <label htmlFor="image-file">ANEXAR IMAGEM</label>
-              <input type="file" id="image-file" name="image-file"/> 
-             
 
+              <label htmlFor="image-file">ANEXAR IMAGEM</label>
+              <input
+                type="file"
+                id="image-file"
+                name="image-file"
+                onChange={handleImage}
+              />
             </ButtonsGroup>
           </form>
         </ContainerFormulario>
