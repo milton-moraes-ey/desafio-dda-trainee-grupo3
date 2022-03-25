@@ -92,6 +92,37 @@ export const ButtonsGroup = styled.div `
     margin-right: 12px;
     margin-top: 1rem;
     cursor: pointer;
+    transition: .5s;
+
+    &:hover {
+      background-color: #CD0909;
+    }
+  }
+
+  input[type="file"] {
+    display:none;
+    
+  }
+
+  label {
+    color: white;
+
+    padding: 0.75rem 1.3rem;
+    background-color: red;
+
+    border: none;
+    border-radius: 20px;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-weight: normal;
+
+    font-size: 14px;
+
+    transition: .5s;
+
+    &:hover {
+      background-color: #CD0909;
+    }
   }
 `;
 

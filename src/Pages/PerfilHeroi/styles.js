@@ -100,5 +100,9 @@ export const Button = styled.button`
     margin-right: 12px;
     margin-top: 1rem;
     cursor: pointer;
+    transition: .5s;
+    &:hover {
+      background-color: #CD0909;
+    }
 
 `;
