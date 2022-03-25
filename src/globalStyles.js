@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     color: #FFF;
     font-weight: bold;
   }
+
 `;
  
 export default GlobalStyle;

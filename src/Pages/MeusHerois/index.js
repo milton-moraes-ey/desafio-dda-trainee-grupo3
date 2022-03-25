@@ -17,15 +17,14 @@ const MeusHerois = () => {
   return (
    <Container>
     
-
-     <NavBar>
+    <NavBar>
        <Hero1 src={Logo} />
        <NavLinks>
-        <Link to="/" className="none">Página Inicial</Link>
+        <Link to="/PaginaInicial" className="none">Página Inicial</Link>
          <Link to="/CadastroHeroi" className="none">Cadastrar Herói</Link>
          <Link to="/MeusHerois" className="none">Meus Heróis</Link>
          <Link to="" className="none">Buscar Herói</Link>
-         <Link to="" className="none">Sair da Conta &nbsp;
+         <Link to="/" className="none">Sair da Conta &nbsp;
                 <ImExit />
          </Link>
        </NavLinks>

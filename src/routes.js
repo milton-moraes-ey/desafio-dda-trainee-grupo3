@@ -7,6 +7,7 @@ import Recovery from './Pages/Recovery';
 import MeusHerois from './Pages/MeusHerois';
 import PerfilHeroi from './Pages/PerfilHeroi';
 import CadastroHeroi from "./Pages/CadastroHeroi";
+import PaginaInicial from "./Pages/PaginaInicial";
 
 const AppRoutes = () => {
     return (
@@ -18,6 +19,7 @@ const AppRoutes = () => {
                 <Route path="/Recovery" element={<Recovery/>}/>
                 <Route path="/MeusHerois" element={<MeusHerois/>}/>
                 <Route path="/PerfilHeroi" element={<PerfilHeroi/>}/>
+                <Route path="/PaginaInicial" element={<PaginaInicial/>}/>
                 
             </Routes>
         </BrowserRouter>

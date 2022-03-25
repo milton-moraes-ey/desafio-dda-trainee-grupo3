@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import {Container, NavBar, NavLinks, Hero1, ContainerDeCadastro,ContainerImagem, ContainerFormulario, InputGroup, ChooseHero, ButtonsGroup, Button } from "./styles";
 
@@ -17,11 +17,11 @@ const PerfilHeroi = () => {
     <NavBar>
        <Hero1 src={Logo} />
        <NavLinks>
-        <Link to="/" className="none">Página Inicial</Link>
+        <Link to="/PaginaInicial" className="none">Página Inicial</Link>
          <Link to="/CadastroHeroi" className="none">Cadastrar Herói</Link>
          <Link to="/MeusHerois" className="none">Meus Heróis</Link>
          <Link to="" className="none">Buscar Herói</Link>
-         <Link to="" className="none">Sair da Conta &nbsp;
+         <Link to="/" className="none">Sair da Conta &nbsp;
                 <ImExit />
          </Link>
        </NavLinks>
