@@ -1,0 +1,18 @@
+
+
+CREATE TABLE account ( 
+  userId SERIAL PRIMARY KEY,
+  username VARCHAR  UNIQUE NOT NULL, 
+  email VARCHAR UNIQUE NOT NULL,
+  password VARCHAR NOT NULL
+);
+
+CREATE TABLE superhero ( 
+	heroid SERIAL PRIMARY KEY,
+	name VARCHAR, 
+        universe VARCHAR,
+	power VARCHAR, 
+	userId smallint, 
+	recDate DATE,
+        softDelete BOOLEAN
+);
