@@ -58,7 +58,7 @@ public class HeroController {
 	
 	// Deleta herói
 		@GetMapping(path = "delete")
-		public void deleteHeroByHeroId(@RequestParam Long heroId) {
+		public void softDeleteHeroByHeroId(@RequestParam Long heroId) {
 			heroServ.softDeleteHeroByHeroId(heroId);
 		}
 }

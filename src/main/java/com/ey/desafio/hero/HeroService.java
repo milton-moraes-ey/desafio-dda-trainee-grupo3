@@ -51,8 +51,13 @@ public class HeroService {
 	}
 
 	// Deleta um herói
-	public void softDeleteHeroByHeroId(Long heroId) {
-		Hero local = heroRepo.findById(heroId).get();
+	public void softDeleteHeroByHeroId(Long heroId) throws IllegalStateException {
+		Hero local;
+		try {
+			local = heroRepo.findById(heroId).get();
+		} catch(IllegalStateException e) {
+			throw new IllegalStateException("Herói com o id " + heroId + " não encontrado!");
+		}
 		heroRepo.deleteById(heroId);
 		local.setSoftDelete(1);
 		heroRepo.save(local);
@@ -62,9 +67,13 @@ public class HeroService {
 	public void editHero(Hero hero) {
 
 		long id = hero.getHeroId();
-		heroRepo.deleteById(id);
-		hero.setHeroId(id);
-		heroRepo.save(hero);
+		try {
+			heroRepo.deleteById(id);
+			hero.setHeroId(id);
+			heroRepo.save(hero);
+		} catch(IllegalStateException e) {
+			throw new IllegalStateException("Herói com o id " + hero.getHeroId() + " não encontrado!");
+		}
 		
 	}
 }

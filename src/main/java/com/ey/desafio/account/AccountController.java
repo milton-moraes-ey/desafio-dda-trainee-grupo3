@@ -29,7 +29,7 @@ public class AccountController {
 	
 	// Adiciona usiário ao banco
 		@PostMapping(path = "register", consumes = {"*/*"})
-		public long addAccount(@RequestBody Account acc) {
+		public String addAccount(@RequestBody Account acc) {
 			return accServ.addAccount(acc);
 		}
 
