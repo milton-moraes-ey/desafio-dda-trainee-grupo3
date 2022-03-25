@@ -58,22 +58,12 @@ public class HeroService {
 		} catch(IllegalStateException e) {
 			throw new IllegalStateException("Herói com o id " + heroId + " não encontrado!");
 		}
-		heroRepo.deleteById(heroId);
 		local.setSoftDelete(1);
 		heroRepo.save(local);
 	}
 
 	// Edita dados de um herói
 	public void editHero(Hero hero) {
-
-		long id = hero.getHeroId();
-		try {
-			heroRepo.deleteById(id);
-			hero.setHeroId(id);
-			heroRepo.save(hero);
-		} catch(IllegalStateException e) {
-			throw new IllegalStateException("Herói com o id " + hero.getHeroId() + " não encontrado!");
-		}
-		
+		heroRepo.save(hero);
 	}
 }

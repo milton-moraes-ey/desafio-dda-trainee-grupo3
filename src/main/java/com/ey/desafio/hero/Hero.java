@@ -1,5 +1,7 @@
 package com.ey.desafio.hero;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 // Entidade Herói
 @Entity
@@ -31,7 +35,8 @@ public class Hero {
 	private long userId;
 
 	@Column
-	private String recDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+	private Date recDate;
 
 	@Column
 	private int softDelete;
@@ -76,11 +81,11 @@ public class Hero {
 		this.userId = userId;
 	}
 
-	public String getRecDate() {
+	public Date getRecDate() {
 		return recDate;
 	}
 
-	public void setRecDate(String recDate) {
+	public void setRecDate(Date recDate) {
 		this.recDate = recDate;
 	}
 
@@ -96,7 +101,7 @@ public class Hero {
 	public Hero() {
 	}
 
-	public Hero(long heroId, String name, String power, String universe, long userId, String recDate, int softDelete) {
+	public Hero(long heroId, String name, String power, String universe, long userId, Date recDate, int softDelete) {
 		super();
 		this.heroId = heroId;
 		this.name = name;
